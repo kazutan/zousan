@@ -6,10 +6,18 @@
 #' set_prj()
 #' @export
 
-set_prj <- function (path = ".")
+set_prj <- function (path = ".", index = FALSE)
 {
   dir.create(file.path(path, "R"), showWarnings = FALSE)
   dir.create(file.path(path, "docs"), showWarnings = FALSE)
-  dir.create(file.path(path, "data"), showWarnings = FALSE)
+  dir.create(file.path(path, "datas"), showWarnings = FALSE)
+  if(index) {
+    if(file.exists(file.path(path, "docs", "index.Rmd"))) {
+      message("file 'index.Rmd' already exits.")
+    } else {
+      file.create(file.path(path, "docs", "index.Rmd"))
+      cat("---", "title: ", "output: ", "---", sep = "/n", file = file.path(path, "docs","index.Rmd"))
+    }
+  }
   invisible(TRUE)
 }
