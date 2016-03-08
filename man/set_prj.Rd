@@ -4,7 +4,7 @@
 \alias{set_prj}
 \title{Set my R-Project.}
 \usage{
-set_prj(path = ".")
+set_prj(path = ".", index = FALSE)
 }
 \arguments{
 \item{path}{Path to Project.}
