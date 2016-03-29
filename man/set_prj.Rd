@@ -8,6 +8,8 @@ set_prj(path = ".", index = FALSE)
 }
 \arguments{
 \item{path}{Path to Project.}
+
+\item{index}{Logical. If `true` then make "index.Rmd" file. This file is quite plane R Markdown file.}
 }
 \value{
 Make "R", "docs", "data" directories in this Project directory.

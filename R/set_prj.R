@@ -1,6 +1,7 @@
 #' Set my R-Project.
 #'
 #' @param path Path to Project.
+#' @param index Logical. If `true` then make "index.Rmd" file. This file is quite plane R Markdown file.
 #' @return Make "R", "docs", "data" directories in this Project directory.
 #' @examples
 #' set_prj()
