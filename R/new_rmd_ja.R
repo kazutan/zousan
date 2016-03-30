@@ -27,11 +27,6 @@ new_rmd_ja <- function(file, path = ".", type = "html", systime = TRUE,
     file.create(filename)
   }
 
-  if(type == "html"){
-    output <- "output: html_document"
-  } else if(type == "revealjs"){
-    output <- "output: revealjs::revealjs_presentation"
-  }
   if(systime){
     date <- paste0("date: ","\"`r format(Sys.time(),'%Y/%m/%d')`\"")
   } else {
@@ -47,6 +42,12 @@ new_rmd_ja <- function(file, path = ".", type = "html", systime = TRUE,
   subtitle <- paste0("subtitle: \"", subtitle, "\"")
 
   setupchunk <- paste("\n```{r setup, include=FALSE}", "knitr::opts_chunk$set(echo = TRUE)", "```", sep = "\n")
+
+  if(type == "html"){
+    output <- "output:\n  html_document:\n    md_extentions: -ascii_identifiers"
+  } else if(type == "revealjs"){
+    output <- "output:\n  revealjs::revealjs_presentation:\n    md_extentions: -ascii_identifiers"
+  }
 
   cat("---", title, subtitle, author, date, output, "---", setupchunk, file = filename, sep = "\n")
 
