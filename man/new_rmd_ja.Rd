@@ -8,6 +8,8 @@ new_rmd_ja(file, path = ".", type = "html", systime = TRUE, title = "",
   subtitle = "", author = "")
 }
 \arguments{
+\item{file}{Charactor. File output R Markdown file name.}
+
 \item{path}{Path to directory for output.}
 
 \item{type}{Charactor or charactor vector. If `type = "html"` then `output: html_document`. If `type = "revealjs` then `output: revealjs::revealjs_presentation`.}
@@ -19,8 +21,6 @@ new_rmd_ja(file, path = ".", type = "html", systime = TRUE, title = "",
 \item{subtitle}{Charactor. set `subtitle: `.}
 
 \item{author}{Charactor. set `author: `.}
-
-\item{Charactor.}{File output R Markdown file name.}
 }
 \description{
 Make new .Rmd file for Japanese.

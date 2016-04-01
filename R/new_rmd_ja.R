@@ -1,6 +1,6 @@
 #' Make new .Rmd file for Japanese.
 #'
-#' @param Charactor. File output R Markdown file name.
+#' @param file Charactor. File output R Markdown file name.
 #' @param path Path to directory for output.
 #' @param type Charactor or charactor vector. If `type = "html"` then `output: html_document`. If `type = "revealjs` then `output: revealjs::revealjs_presentation`.
 #' @param systime Logical. If `TRUE` then set `sys.time` to `date: `.
