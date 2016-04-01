@@ -2,7 +2,7 @@
 #'
 #' @param Charactor. File output R Markdown file name.
 #' @param path Path to directory for output.
-#' @param type Charactor. If `type = "html"` then `output: html_document`. If `type = "revealjs` then `output: revealjs::revealjs_presentation`.
+#' @param type Charactor or charactor vector. If `type = "html"` then `output: html_document`. If `type = "revealjs` then `output: revealjs::revealjs_presentation`.
 #' @param systime Logical. If `TRUE` then set `sys.time` to `date: `.
 #' @param title Charactor. If ""(default) then set file name.
 #' @param subtitle Charactor. set `subtitle: `.
@@ -43,11 +43,14 @@ new_rmd_ja <- function(file, path = ".", type = "html", systime = TRUE,
 
   setupchunk <- paste("\n```{r setup, include=FALSE}", "knitr::opts_chunk$set(echo = TRUE)", "```", sep = "\n")
 
-  if(type == "html"){
-    output <- "output:\n  html_document:\n    md_extentions: -ascii_identifiers"
-  } else if(type == "revealjs"){
-    output <- "output:\n  revealjs::revealjs_presentation:\n    md_extentions: -ascii_identifiers"
+  output_list <- list()
+  if(sum(type %in% "html")){
+    output_list$html <- "  html_document:\n    md_extentions: -ascii_identifiers"
   }
+  if(sum(type %in% "revealjs")){
+    output_list$revealjs <- "  revealjs::revealjs_presentation:\n    md_extentions: -ascii_identifiers"
+  }
+  output <- paste0("output:\n", paste(output_list, collapse = "\n"))
 
   cat("---", title, subtitle, author, date, output, "---", setupchunk, file = filename, sep = "\n")
 
