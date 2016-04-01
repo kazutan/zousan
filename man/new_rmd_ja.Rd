@@ -10,7 +10,7 @@ new_rmd_ja(file, path = ".", type = "html", systime = TRUE, title = "",
 \arguments{
 \item{path}{Path to directory for output.}
 
-\item{type}{Charactor. If `type = "html"` then `output: html_document`. If `type = "revealjs` then `output: revealjs::revealjs_presentation`.}
+\item{type}{Charactor or charactor vector. If `type = "html"` then `output: html_document`. If `type = "revealjs` then `output: revealjs::revealjs_presentation`.}
 
 \item{systime}{Logical. If `TRUE` then set `sys.time` to `date: `.}
 
