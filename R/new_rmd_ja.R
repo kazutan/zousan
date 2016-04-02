@@ -2,7 +2,7 @@
 #'
 #' @param file Charactor. File output R Markdown file name.
 #' @param path Path to directory for output.
-#' @param type Charactor or charactor vector. If type = "html", then set "output: html_document". If type = "revealjs", then set "output: revealjs::revealjs_presentation".
+#' @param type Charactor or charactor vector. Now you can use "html", "pdf", "word", "odt", md", "ioslides", "slidy", and "beamer".
 #' @param systime Logical. If TRUE then set `sys.time` to `date: `.
 #' @param title Charactor. If ""(default) then set file name.
 #' @param subtitle Charactor. Set `subtitle: `.
@@ -12,7 +12,7 @@
 #' @export
 
 new_rmd_ja <- function(file, path = ".", type = "html", systime = TRUE,
-                       title = "", subtitle = "", author = "", self_contained = TRUE,
+                       title = "", subtitle = "", author = "", toc = FALSE, self_contained = TRUE,
                        load_p = NULL){
   if(missing(file)){
     stop("set 'file' to file name.")
@@ -52,13 +52,39 @@ new_rmd_ja <- function(file, path = ".", type = "html", systime = TRUE,
   } else {
     self_c <- NULL
   }
+  if(toc){
+    toc_c <- "\n    toc: true"
+  } else {
+    toc_c <- NULL
+  }
 
   output_list <- list()
   if(sum(type %in% "html")){
-    output_list$html <- paste0("  html_document:\n    md_extentions: -ascii_identifiers", self_c)
+    output_list$html <- paste0("  html_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
   }
   if(sum(type %in% "revealjs")){
-    output_list$revealjs <- paste0("  revealjs::revealjs_presentation:\n    md_extentions: -ascii_identifiers", self_c)
+    output_list$revealjs <- paste0("  revealjs::revealjs_presentation:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+  }
+  if(sum(type %in% "ioslide")){
+    output_list$ioslide <- paste0("  ioslides_presentation:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+  }
+  if(sum(type %in% "slidy")){
+    output_list$slidy <- paste0("  slidy_presentation:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+  }
+  if(sum(type %in% "beamer")){
+    output_list$revealjs <- paste0("  beamer_presentation:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+  }
+  if(sum(type %in% "pdf")){
+    output_list$revealjs <- paste0("  pdf_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+  }
+  if(sum(type %in% "word")){
+    output_list$revealjs <- paste0("  word_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+  }
+  if(sum(type %in% "md")){
+    output_list$revealjs <- paste0("  pdf_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+  }
+  if(sum(type %in% "odt")){
+    output_list$revealjs <- paste0("  odt_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
   }
   output <- paste0("output:\n", paste(output_list, collapse = "\n"))
 

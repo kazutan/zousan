@@ -5,14 +5,15 @@
 \title{Make new .Rmd file for Japanese.}
 \usage{
 new_rmd_ja(file, path = ".", type = "html", systime = TRUE, title = "",
-  subtitle = "", author = "", self_contained = TRUE, load_p = NULL)
+  subtitle = "", author = "", toc = FALSE, self_contained = TRUE,
+  load_p = NULL)
 }
 \arguments{
 \item{file}{Charactor. File output R Markdown file name.}
 
 \item{path}{Path to directory for output.}
 
-\item{type}{Charactor or charactor vector. If type = "html", then set "output: html_document". If type = "revealjs", then set "output: revealjs::revealjs_presentation".}
+\item{type}{Charactor or charactor vector. Now you can use "html", "pdf", "word", "odt", md", "ioslides", "slidy", and "beamer".}
 
 \item{systime}{Logical. If TRUE then set `sys.time` to `date: `.}
 
