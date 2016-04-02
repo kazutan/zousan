@@ -5,22 +5,26 @@
 \title{Make new .Rmd file for Japanese.}
 \usage{
 new_rmd_ja(file, path = ".", type = "html", systime = TRUE, title = "",
-  subtitle = "", author = "")
+  subtitle = "", author = "", self_contained = TRUE, load_p = NULL)
 }
 \arguments{
 \item{file}{Charactor. File output R Markdown file name.}
 
 \item{path}{Path to directory for output.}
 
-\item{type}{Charactor or charactor vector. If `type = "html"` then `output: html_document`. If `type = "revealjs` then `output: revealjs::revealjs_presentation`.}
+\item{type}{Charactor or charactor vector. If type = "html", then set "output: html_document". If type = "revealjs", then set "output: revealjs::revealjs_presentation".}
 
-\item{systime}{Logical. If `TRUE` then set `sys.time` to `date: `.}
+\item{systime}{Logical. If TRUE then set `sys.time` to `date: `.}
 
 \item{title}{Charactor. If ""(default) then set file name.}
 
-\item{subtitle}{Charactor. set `subtitle: `.}
+\item{subtitle}{Charactor. Set `subtitle: `.}
 
-\item{author}{Charactor. set `author: `.}
+\item{author}{Charactor. Set `author: `.}
+
+\item{self_contained}{Logical. If FALSE, then set "self_contained: false".}
+
+\item{load_p}{Charactor vector. Set package names if you want to load.}
 }
 \description{
 Make new .Rmd file for Japanese.

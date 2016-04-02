@@ -2,15 +2,18 @@
 #'
 #' @param file Charactor. File output R Markdown file name.
 #' @param path Path to directory for output.
-#' @param type Charactor or charactor vector. If `type = "html"` then `output: html_document`. If `type = "revealjs` then `output: revealjs::revealjs_presentation`.
-#' @param systime Logical. If `TRUE` then set `sys.time` to `date: `.
+#' @param type Charactor or charactor vector. If type = "html", then set "output: html_document". If type = "revealjs", then set "output: revealjs::revealjs_presentation".
+#' @param systime Logical. If TRUE then set `sys.time` to `date: `.
 #' @param title Charactor. If ""(default) then set file name.
-#' @param subtitle Charactor. set `subtitle: `.
-#' @param author Charactor. set `author: `.
+#' @param subtitle Charactor. Set `subtitle: `.
+#' @param author Charactor. Set `author: `.
+#' @param self_contained Logical. If FALSE, then set "self_contained: false".
+#' @param load_p Charactor vector. Set package names if you want to load.
 #' @export
 
 new_rmd_ja <- function(file, path = ".", type = "html", systime = TRUE,
-                       title = "", subtitle = "", author = ""){
+                       title = "", subtitle = "", author = "", self_contained = TRUE,
+                       load_p = NULL){
   if(missing(file)){
     stop("set 'file' to file name.")
   } else {
@@ -19,6 +22,10 @@ new_rmd_ja <- function(file, path = ".", type = "html", systime = TRUE,
     } else {
       filename <- file.path(path, paste0(file, ".Rmd"))
     }
+  }
+
+  if(!dir.exists(path)){
+    dir.create(path)
   }
 
   if(file.exists(filename)){
@@ -40,17 +47,27 @@ new_rmd_ja <- function(file, path = ".", type = "html", systime = TRUE,
   }
   author <- paste0("author: \"", author, "\"")
   subtitle <- paste0("subtitle: \"", subtitle, "\"")
-
-  setupchunk <- paste("\n```{r setup, include=FALSE}", "knitr::opts_chunk$set(echo = TRUE)", "```", sep = "\n")
+  if(!self_contained){
+    self_c <- "\n    self_contained: false"
+  } else {
+    self_c <- NULL
+  }
 
   output_list <- list()
   if(sum(type %in% "html")){
-    output_list$html <- "  html_document:\n    md_extentions: -ascii_identifiers"
+    output_list$html <- paste0("  html_document:\n    md_extentions: -ascii_identifiers", self_c)
   }
   if(sum(type %in% "revealjs")){
-    output_list$revealjs <- "  revealjs::revealjs_presentation:\n    md_extentions: -ascii_identifiers"
+    output_list$revealjs <- paste0("  revealjs::revealjs_presentation:\n    md_extentions: -ascii_identifiers", self_c)
   }
   output <- paste0("output:\n", paste(output_list, collapse = "\n"))
+
+  l_p <- NULL
+  if(!missing(load_p)){
+    l_p <- paste0("library(", load_p, ")")
+    l_p <- paste(l_p, collapse = "\n")
+  }
+  setupchunk <- paste("\n```{r setup, include=FALSE}", "knitr::opts_chunk$set(echo = TRUE)", l_p, "```", sep = "\n")
 
   cat("---", title, subtitle, author, date, output, "---", setupchunk, file = filename, sep = "\n")
 
