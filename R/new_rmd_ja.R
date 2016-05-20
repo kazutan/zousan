@@ -72,19 +72,19 @@ new_rmd_ja <- function(file, path = ".", type = "html", systime = TRUE,
     output_list$slidy <- paste0("  slidy_presentation:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
   }
   if(sum(type %in% "beamer")){
-    output_list$revealjs <- paste0("  beamer_presentation:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+    output_list$beamer <- paste0("  beamer_presentation:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
   }
   if(sum(type %in% "pdf")){
-    output_list$revealjs <- paste0("  pdf_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+    output_list$pdf <- paste0("  pdf_document:\n    latex_engine: lualatex\nmainfont: IPAMincho", self_c, toc_c)
   }
   if(sum(type %in% "word")){
-    output_list$revealjs <- paste0("  word_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+    output_list$word <- paste0("  word_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
   }
   if(sum(type %in% "md")){
-    output_list$revealjs <- paste0("  pdf_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+    output_list$md <- paste0("  pdf_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
   }
   if(sum(type %in% "odt")){
-    output_list$revealjs <- paste0("  odt_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+    output_list$odt <- paste0("  odt_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
   }
   output <- paste0("output:\n", paste(output_list, collapse = "\n"))
 
