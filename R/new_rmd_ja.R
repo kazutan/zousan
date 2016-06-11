@@ -2,11 +2,12 @@
 #'
 #' @param file Charactor. File output R Markdown file name.
 #' @param path Path to directory for output.
-#' @param type Charactor or charactor vector. Now you can use "html", "pdf", "word", "odt", md", "ioslides", "slidy", and "beamer".
+#' @param type Charactor or charactor vector. Now you can use "html", "pdf", "word", "odt", md", "ioslides", "slidy", "revealjs", and "beamer".
 #' @param systime Logical. If TRUE then set `sys.time` to `date: `.
 #' @param title Charactor. If ""(default) then set file name.
 #' @param subtitle Charactor. Set `subtitle: `.
 #' @param author Charactor. Set `author: `.
+#' @param toc Logical. If TRUE then set `toc = true`.
 #' @param self_contained Logical. If FALSE, then set "self_contained: false".
 #' @param load_p Charactor vector. Set package names if you want to load.
 #' @export
@@ -63,7 +64,7 @@ new_rmd_ja <- function(file, path = ".", type = "html", systime = TRUE,
     output_list$html <- paste0("  html_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
   }
   if(sum(type %in% "revealjs")){
-    output_list$revealjs <- paste0("  revealjs::revealjs_presentation:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+    output_list$revealjs <- paste0("  revealjs::revealjs_presentation:\n    pandoc_args: [\n      '--from', 'markdown+autolink_bare_uris+tex_math_single_backslash-implicit_figures'\n    ]", self_c, toc_c)
   }
   if(sum(type %in% "ioslide")){
     output_list$ioslide <- paste0("  ioslides_presentation:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
@@ -81,7 +82,7 @@ new_rmd_ja <- function(file, path = ".", type = "html", systime = TRUE,
     output_list$word <- paste0("  word_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
   }
   if(sum(type %in% "md")){
-    output_list$md <- paste0("  pdf_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
+    output_list$md <- paste0("  md_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)
   }
   if(sum(type %in% "odt")){
     output_list$odt <- paste0("  odt_document:\n    md_extentions: -ascii_identifiers", self_c, toc_c)

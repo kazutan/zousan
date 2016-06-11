@@ -13,7 +13,7 @@ new_rmd_ja(file, path = ".", type = "html", systime = TRUE, title = "",
 
 \item{path}{Path to directory for output.}
 
-\item{type}{Charactor or charactor vector. Now you can use "html", "pdf", "word", "odt", md", "ioslides", "slidy", and "beamer".}
+\item{type}{Charactor or charactor vector. Now you can use "html", "pdf", "word", "odt", md", "ioslides", "slidy", "revealjs", and "beamer".}
 
 \item{systime}{Logical. If TRUE then set `sys.time` to `date: `.}
 
@@ -22,6 +22,8 @@ new_rmd_ja(file, path = ".", type = "html", systime = TRUE, title = "",
 \item{subtitle}{Charactor. Set `subtitle: `.}
 
 \item{author}{Charactor. Set `author: `.}
+
+\item{toc}{Logical. If TRUE then set `toc = true`.}
 
 \item{self_contained}{Logical. If FALSE, then set "self_contained: false".}
 
