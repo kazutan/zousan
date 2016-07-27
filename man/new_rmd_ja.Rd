@@ -6,14 +6,14 @@
 \usage{
 new_rmd_ja(file, path = ".", type = "html", systime = TRUE, title = "",
   subtitle = "", author = "", toc = FALSE, self_contained = TRUE,
-  load_p = NULL)
+  css = NULL, load_p = NULL)
 }
 \arguments{
 \item{file}{Charactor. File output R Markdown file name.}
 
 \item{path}{Path to directory for output.}
 
-\item{type}{Charactor or charactor vector. Now you can use "html", "pdf", "word", "odt", md", "ioslides", "slidy", "revealjs", and "beamer".}
+\item{type}{Charactor or charactor vector. Now you can use "html", "pdf", "word", "odt", md", "ioslides", "slidy", "revealjs", "dashboard", "notebook", and "beamer".}
 
 \item{systime}{Logical. If TRUE then set `sys.time` to `date: `.}
 
@@ -26,6 +26,8 @@ new_rmd_ja(file, path = ".", type = "html", systime = TRUE, title = "",
 \item{toc}{Logical. If TRUE then set `toc = true`.}
 
 \item{self_contained}{Logical. If FALSE, then set "self_contained: false".}
+
+\item{css}{Charactor. Set `css: `.}
 
 \item{load_p}{Charactor vector. Set package names if you want to load.}
 }
