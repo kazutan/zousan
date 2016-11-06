@@ -61,6 +61,8 @@ new_rmd_ja <- function(file, path = ".", type = "html", systime = TRUE,
   }
   if(!missing(css)){
     css_c <- paste0("\n    css: ", css)
+  } else {
+    css_c <- NULL
   }
 
 
