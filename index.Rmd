@@ -1,3 +1,15 @@
+---
+title: "zousan"
+author: "kazutan"
+date: "2016/11/6"
+output: 
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 # zousan package
 
 Tools library which @kazutan often uses. Almost all functions are
