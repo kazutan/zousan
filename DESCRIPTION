@@ -1,7 +1,7 @@
 Package: zousan
 Type: Package
 Title: Tools for kazutan.
-Version: 0.0.0.160611
+Version: 0.0.0.170127
 Date: 2016-06-11
 Authors@R: person("Kazuhiro", "Maeda", email = "kazu@kz-md.net", role = c("aut", "cre"))
 Description: Tools library which @kazutan often uses. Almost all functions are
@@ -9,3 +9,10 @@ Description: Tools library which @kazutan often uses. Almost all functions are
 License: MIT
 LazyData: TRUE
 RoxygenNote: 5.0.1
+Imports: stringr,
+    magrittr,
+    RCurl,
+    jsonlite,
+    htmltools,
+    knitr
+Suggests: testthat

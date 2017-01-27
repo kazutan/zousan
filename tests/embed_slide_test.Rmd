@@ -1,0 +1,28 @@
+---
+title: "embed_slide_test"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(zousan)
+```
+
+## slideshare-url test
+
+```{r}
+embed_slide("http://www.slideshare.net/makotohirakawa3/osakastan2-chap51")
+```
+
+## speakerdeck-url test
+
+```{r}
+embed_slide("https://speakerdeck.com/yamano357/tokyor49-stringr-stringi")
+```
+
+## other html-slide test
+
+```{r}
+embed_slide("http://kz-md.net/stat/tmp_box/intro_tubeplayR.html#/")
+```
+
