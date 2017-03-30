@@ -12,8 +12,8 @@
 #' embed_slide("http://kz-md.net/stat/tmp_box/intro_tubeplayR.html#/")
 #'
 #' @import magrittr
+#' @import RCurl
 #' @importFrom stringr str_detect
-#' @importFrom RCurl getURI
 #' @importFrom stringr str_replace_all
 #' @importFrom jsonlite fromJSON
 #' @importFrom htmltools knit_print.html
@@ -26,7 +26,7 @@ embed_slide <- function(url, width = "100%", height){
     # for slideshare
     iframe_tag <- url %>%
       paste("http://www.slideshare.net/api/oembed/2?url=", ., "&format-json", sep = "") %>%
-      getURI() %>%
+      getURI(.opts = curlOptions(followlocation=TRUE)) %>%
       str_replace_all("\n", "") %>%
       fromJSON() %>%
       .$html %>%
@@ -35,7 +35,7 @@ embed_slide <- function(url, width = "100%", height){
     # for speakerdeck
     iframe_tag <- url %>%
       paste("https://speakerdeck.com/oembed.json?url=", ., sep = "") %>%
-      getURI() %>%
+      getURI(.opts = curlOptions(followlocation=TRUE)) %>%
       str_replace_all("\n", "") %>%
       fromJSON() %>%
       .$html %>%

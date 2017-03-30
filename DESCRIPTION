@@ -1,14 +1,14 @@
 Package: zousan
 Type: Package
 Title: Tools for kazutan.
-Version: 0.0.0.170128
-Date: 2016-06-11
+Version: 0.0.0.170330
+Date: 2017-03-30
 Authors@R: person("Kazuhiro", "Maeda", email = "kazu@kz-md.net", role = c("aut", "cre"))
 Description: Tools library which @kazutan often uses. Almost all functions are
     designed for @kazutan .
 License: MIT
 LazyData: TRUE
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 Imports: stringr,
     magrittr,
     RCurl,

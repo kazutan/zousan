@@ -34,4 +34,3 @@ new_rmd_ja(file, path = ".", type = "html", systime = TRUE, title = "",
 \description{
 Make new .Rmd file for Japanese.
 }
-
