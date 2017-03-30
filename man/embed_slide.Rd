@@ -25,4 +25,3 @@ embed_slide("https://speakerdeck.com/yamano357/tokyor49-stringr-stringi")
 embed_slide("http://kz-md.net/stat/tmp_box/intro_tubeplayR.html#/")
 
 }
-

@@ -20,4 +20,3 @@ Set my R-Project.
 \examples{
 set_prj()
 }
-

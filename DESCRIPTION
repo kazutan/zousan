@@ -8,7 +8,7 @@ Description: Tools library which @kazutan often uses. Almost all functions are
     designed for @kazutan .
 License: MIT
 LazyData: TRUE
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 Imports: stringr,
     magrittr,
     RCurl,
