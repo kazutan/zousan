@@ -1,8 +1,8 @@
 Package: zousan
 Type: Package
 Title: Tools for kazutan.
-Version: 0.0.0.170330
-Date: 2017-03-30
+Version: 0.0.0.170525
+Date: 2017-05-25
 Authors@R: person("Kazuhiro", "Maeda", email = "kazu@kz-md.net", role = c("aut", "cre"))
 Description: Tools library which @kazutan often uses. Almost all functions are
     designed for @kazutan .
