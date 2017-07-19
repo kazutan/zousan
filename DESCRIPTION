@@ -14,5 +14,6 @@ Imports: stringr,
     RCurl,
     jsonlite,
     htmltools,
-    knitr
+    knitr,
+    rmarkdown
 Suggests: testthat
