@@ -524,7 +524,7 @@ $endif$
 $if(lightbox)$
 <script>
 $$(function(){
-  $$("img").wrap(function() {
+  $$("img:not(.lb-image)").wrap(function() {
     return "<a href='" + $$(this).attr("src") + "' data-lightbox='" + $$(this).attr("scr") + "'></a>";
   });
 });
