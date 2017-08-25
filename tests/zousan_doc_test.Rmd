@@ -25,6 +25,50 @@ $$
 
 文中の数式$y = f(x)$のテスト。
 
+## bs_panel test
+
+hogehoge.
+
+#### panel_test {.panel}
+
+aaaaaaaaaaa.
+
+```{r}
+plot(1:10)
+```
+
+#### {.panel-end}
+
+hogehoge
+
+#### panel_info {.panel .panel-info}
+
+fugafauga.
+
+
+## label tests **lbl-i label**
+
+- **lbl new** default label.
+- **lbl-p aaa** primary label.
+- **lbl-warning warning!** waring label.
+
+## bs_badge test
+
+ほげほげ**bdg 3**　ほむほむ**bdg `r 3*4`**
+
+## list_addclass test
+
+- **addclass: breadcrumb**
+- home
+- library
+- hoge
+
+1. **addclass: breadcrumb**
+1. home
+1. library
+1. hoge
+
+
 ## Including Plots
 
 You can also embed plots, for example:

@@ -1,3 +1,6 @@
 .Rproj.user
 .Rhistory
 .RData
+tests/*.html
+tests/*_files
+*.html

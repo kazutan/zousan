@@ -6,6 +6,10 @@
 #' @param katex Logical. If TRUE, then use katex instead of mathjax.
 #' @param lightbox Logical. If TRUE, then set lightbox automatically.
 #' @param showhide Logical. If TRUE, you could set show/hide button.
+#' @param bs_panel Logical. If TRUE, you could use Bootstrap panel.
+#' @param bs_label Logical. If TRUE, you could use Bootstrap label.
+#' @param bs_badge Logical. If TRUE, you could use Bootstrap badge.
+#' @param list_addclass Logical. If TRUE, you could add selector class to ul/ol list.
 #' @export
 zousan_document <- function(fig_width = 7,
                             fig_height = 5,
@@ -20,6 +24,10 @@ zousan_document <- function(fig_width = 7,
                             katex = FALSE,
                             lightbox = TRUE,
                             showhide = TRUE,
+                            bs_panel = TRUE,
+                            bs_label = TRUE,
+                            bs_badge = TRUE,
+                            list_addclass = TRUE,
                             ...) {
   # base pandoc options for all output
   args <- c()
@@ -51,6 +59,26 @@ zousan_document <- function(fig_width = 7,
   # showhide ready
   if(showhide) {
     args <- c(args, pandoc_variable_arg("showhide", "1"))
+  }
+
+  # bs_panel ready
+  if(bs_panel) {
+    args <- c(args, pandoc_variable_arg("bs_panel", "1"))
+  }
+
+  # bs_label ready
+  if(bs_label) {
+    args <- c(args, pandoc_variable_arg("bs_label", "1"))
+  }
+
+  # bs_badge ready
+  if(bs_badge) {
+    args <- c(args, pandoc_variable_arg("bs_badge", "1"))
+  }
+
+  # list_addclass ready
+  if(list_addclass) {
+    args <- c(args, pandoc_variable_arg("list_addclass", "1"))
   }
 
   # return format

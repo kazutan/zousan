@@ -551,5 +551,79 @@ $$(function(){
 </script>
 $endif$
 
+$if(bs_panel)$
+<script>
+  $$(function(){
+    $$(".panel").addClass("panel-default");
+    $$(".panel").each(function(){
+      $$(this).children().eq(0).replaceWith(function(){
+        $$(this).replaceWith("<div class=panel-heading>"+$$(this).text()+"</div>");
+      });
+      $$(this).children("*:not('.panel-heading')").wrapAll("<div class=panel-body />");
+    });
+    $$(".panel-end").each(function(){
+      $$(this).children().eq(0).remove();
+      $$(this).children().unwrap();
+    });
+  });
+</script>
+$endif$
+
+$if(bs_label)$
+<script type="text/javascript" charset="utf-8">
+  $$(function(){
+    $$("strong").each(function(){
+      var txt = $$(this).text();
+      if(txt.match("^lbl")){
+        var strLabel = txt.replace(/^.* /g, '');
+        var type = txt.match(/^lbl-?(p|s|i|w|d)?.* /)[1];
+        switch(type){
+          case 'p' : typeClass = 'primary'; break;
+          case 's' : typeClass = 'success'; break;
+          case 'i' : typeClass = 'info'; break;
+          case 'w' : typeClass = 'warning'; break;
+          case 'd' : typeClass = 'danger'; break;
+          default : typeClass = 'default'; break;
+        };
+        $$(this).replaceWith(function(){
+          $$(this).replaceWith("<span class='label label-"+typeClass+"'>"+strLabel+"</span>");
+        });
+      }
+    });
+  });
+</script>
+$endif$
+
+$if(bs_badge)$
+<script>
+  $$(function(){
+    $$("strong").each(function(){
+      var txt = $$(this).text();
+      if(txt.match("^bdg")){
+        var strBadge = txt.replace(/^.* /g, '');
+        $$(this).replaceWith(function(){
+          $$(this).replaceWith("<span class='badge'>"+strBadge+"</span>")
+        });
+      }
+    });
+  });
+</script>
+$endif$
+
+$if(list_addclass)$
+<script>
+  $$(function(){
+    $$("strong").each(function(){
+      var txt = $$(this).text()
+      if(txt.match("^addclass")){
+        var strClass = txt.replace(/^.*:/g, '');
+        $$(this).closest('ol,ul').addClass(strClass);
+        $$(this).closest('li').remove();
+      }
+    });
+  });
+</script>
+$endif$
+
 </body>
 </html>
