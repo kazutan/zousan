@@ -610,5 +610,20 @@ $if(bs_badge)$
 </script>
 $endif$
 
+$if(list_addclass)$
+<script>
+  $$(function(){
+    $$("strong").each(function(){
+      var txt = $$(this).text()
+      if(txt.match("^addclass")){
+        var strClass = txt.replace(/^.*:/g, '');
+        $$(this).closest('ol,ul').addClass(strClass);
+        $$(this).closest('li').remove();
+      }
+    });
+  });
+</script>
+$endif$
+
 </body>
 </html>

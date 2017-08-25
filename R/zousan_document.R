@@ -9,6 +9,7 @@
 #' @param bs_panel Logical. If TRUE, you could use Bootstrap panel.
 #' @param bs_label Logical. If TRUE, you could use Bootstrap label.
 #' @param bs_badge Logical. If TRUE, you could use Bootstrap badge.
+#' @param list_addclass Logical. If TRUE, you could add selector class to ul/ol list.
 #' @export
 zousan_document <- function(fig_width = 7,
                             fig_height = 5,
@@ -26,6 +27,7 @@ zousan_document <- function(fig_width = 7,
                             bs_panel = TRUE,
                             bs_label = TRUE,
                             bs_badge = TRUE,
+                            list_addclass = TRUE,
                             ...) {
   # base pandoc options for all output
   args <- c()
@@ -72,6 +74,11 @@ zousan_document <- function(fig_width = 7,
   # bs_badge ready
   if(bs_badge) {
     args <- c(args, pandoc_variable_arg("bs_badge", "1"))
+  }
+
+  # list_addclass ready
+  if(list_addclass) {
+    args <- c(args, pandoc_variable_arg("list_addclass", "1"))
   }
 
   # return format

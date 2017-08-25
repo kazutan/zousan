@@ -9,7 +9,7 @@ zousan_document(fig_width = 7, fig_height = 5, fig_retina = 2,
   keep_md = FALSE, mathjax = "default",
   md_extensions = "-ascii_identifiers", template = "default",
   katex = FALSE, lightbox = TRUE, showhide = TRUE, bs_panel = TRUE,
-  bs_label = TRUE, bs_badge = TRUE, ...)
+  bs_label = TRUE, bs_badge = TRUE, list_addclass = TRUE, ...)
 }
 \arguments{
 \item{fig_width}{Default width (in inches) for figures}
@@ -61,6 +61,8 @@ more details).}
 \item{bs_label}{Logical. If TRUE, you could use Bootstrap label.}
 
 \item{bs_badge}{Logical. If TRUE, you could use Bootstrap badge.}
+
+\item{list_addclass}{Logical. If TRUE, you could add selector class to ul/ol list.}
 
 \item{...}{Additional function arguments to pass to the
 base R Markdown HTML output formatter \code{\link{html_document_base}}}

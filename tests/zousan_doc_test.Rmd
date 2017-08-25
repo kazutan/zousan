@@ -56,6 +56,19 @@ fugafauga.
 
 ほげほげ**bdg 3**　ほむほむ**bdg `r 3*4`**
 
+## list_addclass test
+
+- **addclass: breadcrumb**
+- home
+- library
+- hoge
+
+1. **addclass: breadcrumb**
+1. home
+1. library
+1. hoge
+
+
 ## Including Plots
 
 You can also embed plots, for example:
