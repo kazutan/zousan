@@ -8,7 +8,8 @@ zousan_document(fig_width = 7, fig_height = 5, fig_retina = 2,
   fig_caption = TRUE, self_contained = FALSE, dev = "png",
   keep_md = FALSE, mathjax = "default",
   md_extensions = "-ascii_identifiers", template = "default",
-  katex = FALSE, lightbox = TRUE, showhide = TRUE, bs_panel = TRUE, ...)
+  katex = FALSE, lightbox = TRUE, showhide = TRUE, bs_panel = TRUE,
+  bs_label = TRUE, ...)
 }
 \arguments{
 \item{fig_width}{Default width (in inches) for figures}
@@ -56,6 +57,8 @@ more details).}
 \item{showhide}{Logical. If TRUE, you could set show/hide button.}
 
 \item{bs_panel}{Logical. If TRUE, you could use Bootstrap panel.}
+
+\item{bs_label}{Logical. if TRUE, you could use Bootstrap label.}
 
 \item{...}{Additional function arguments to pass to the
 base R Markdown HTML output formatter \code{\link{html_document_base}}}

@@ -569,5 +569,30 @@ $if(bs_panel)$
 </script>
 $endif$
 
+$if(bs_label)$
+<script type="text/javascript" charset="utf-8">
+  $$(function(){
+    $$("strong").each(function(){
+      var txt = $$(this).text();
+      if(txt.match("^lbl")){
+        var strLabel = txt.replace(/^.* /g, '');
+        var type = txt.match(/^lbl-?(p|s|i|w|d)?.* /)[1];
+        switch(type){
+          case 'p' : typeClass = 'primary'; break;
+          case 's' : typeClass = 'success'; break;
+          case 'i' : typeClass = 'info'; break;
+          case 'w' : typeClass = 'warning'; break;
+          case 'd' : typeClass = 'danger'; break;
+          default : typeClass = 'default'; break;
+        };
+        $$(this).replaceWith(function(){
+          $$(this).replaceWith("<span class='label label-"+typeClass+"'>"+strLabel+"</span>");
+        });
+      }
+    });
+  });
+</script>
+$endif$
+
 </body>
 </html>

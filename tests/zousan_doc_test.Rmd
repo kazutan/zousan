@@ -46,6 +46,12 @@ hogehoge
 fugafauga.
 
 
+## label tests **lbl-i label**
+
+- **lbl new** default label.
+- **lbl-p aaa** primary label.
+- **lbl-warning warning!** waring label.
+
 ## Including Plots
 
 You can also embed plots, for example:
