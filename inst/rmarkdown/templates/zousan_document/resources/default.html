@@ -594,5 +594,21 @@ $if(bs_label)$
 </script>
 $endif$
 
+$if(bs_badge)$
+<script>
+  $$(function(){
+    $$("strong").each(function(){
+      var txt = $$(this).text();
+      if(txt.match("^bdg")){
+        var strBadge = txt.replace(/^.* /g, '');
+        $$(this).replaceWith(function(){
+          $$(this).replaceWith("<span class='badge'>"+strBadge+"</span>")
+        });
+      }
+    });
+  });
+</script>
+$endif$
+
 </body>
 </html>

@@ -52,6 +52,10 @@ fugafauga.
 - **lbl-p aaa** primary label.
 - **lbl-warning warning!** waring label.
 
+## bs_badge test
+
+ほげほげ**bdg 3**　ほむほむ**bdg `r 3*4`**
+
 ## Including Plots
 
 You can also embed plots, for example:

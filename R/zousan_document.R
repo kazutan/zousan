@@ -7,7 +7,8 @@
 #' @param lightbox Logical. If TRUE, then set lightbox automatically.
 #' @param showhide Logical. If TRUE, you could set show/hide button.
 #' @param bs_panel Logical. If TRUE, you could use Bootstrap panel.
-#' @param bs_label Logical. if TRUE, you could use Bootstrap label.
+#' @param bs_label Logical. If TRUE, you could use Bootstrap label.
+#' @param bs_badge Logical. If TRUE, you could use Bootstrap badge.
 #' @export
 zousan_document <- function(fig_width = 7,
                             fig_height = 5,
@@ -24,6 +25,7 @@ zousan_document <- function(fig_width = 7,
                             showhide = TRUE,
                             bs_panel = TRUE,
                             bs_label = TRUE,
+                            bs_badge = TRUE,
                             ...) {
   # base pandoc options for all output
   args <- c()
@@ -65,6 +67,11 @@ zousan_document <- function(fig_width = 7,
   # bs_label ready
   if(bs_label) {
     args <- c(args, pandoc_variable_arg("bs_label", "1"))
+  }
+
+  # bs_badge ready
+  if(bs_badge) {
+    args <- c(args, pandoc_variable_arg("bs_badge", "1"))
   }
 
   # return format
