@@ -6,6 +6,7 @@
 #' @param katex Logical. If TRUE, then use katex instead of mathjax.
 #' @param lightbox Logical. If TRUE, then set lightbox automatically.
 #' @param showhide Logical. If TRUE, you could set show/hide button.
+#' @param bs_panel Logical. If TRUE, you could use Bootstrap panel.
 #' @export
 zousan_document <- function(fig_width = 7,
                             fig_height = 5,
@@ -20,6 +21,7 @@ zousan_document <- function(fig_width = 7,
                             katex = FALSE,
                             lightbox = TRUE,
                             showhide = TRUE,
+                            bs_panel = TRUE,
                             ...) {
   # base pandoc options for all output
   args <- c()
@@ -51,6 +53,11 @@ zousan_document <- function(fig_width = 7,
   # showhide ready
   if(showhide) {
     args <- c(args, pandoc_variable_arg("showhide", "1"))
+  }
+
+  # bs_panel ready
+  if(bs_panel) {
+    args <- c(args, pandoc_variable_arg("bs_panel", "1"))
   }
 
   # return format

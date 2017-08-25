@@ -25,6 +25,27 @@ $$
 
 文中の数式$y = f(x)$のテスト。
 
+## bs_panel test
+
+hogehoge.
+
+#### panel_test {.panel}
+
+aaaaaaaaaaa.
+
+```{r}
+plot(1:10)
+```
+
+#### {.panel-end}
+
+hogehoge
+
+#### panel_info {.panel .panel-info}
+
+fugafauga.
+
+
 ## Including Plots
 
 You can also embed plots, for example:
